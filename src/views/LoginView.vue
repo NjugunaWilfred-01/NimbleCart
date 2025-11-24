@@ -105,6 +105,7 @@
                   id="signup-firstname"
                   name="firstname"
                   type="text"
+                  autocomplete="given-name"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                   placeholder="Enter your first name"
@@ -119,6 +120,7 @@
                   id="signup-lastname"
                   name="lastname"
                   type="text"
+                  autocomplete="family-name"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                   placeholder="Enter your last name"
@@ -130,9 +132,12 @@
                   Username
                 </label>
                 <input
+                  :key="'signup-username-' + activeTab"
                   id="signup-username"
-                  name="username"
+                  name="signup-username"
                   type="text"
+                  autocomplete="off"
+                  data-form-type="signup"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                   placeholder="Choose a username"
@@ -147,6 +152,7 @@
                   id="signup-email"
                   name="email"
                   type="email"
+                  autocomplete="email"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                   placeholder="Enter your email"
@@ -202,7 +208,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
@@ -226,6 +232,13 @@ const signupData = reactive({
   password: '',
 })
 
+// Clear username field when switching to signup tab
+watch(activeTab, (newTab) => {
+  if (newTab === 'signup') {
+    signupData.username = ''
+  }
+})
+
 const handleLogin = async () => {
   isLoading.value = true
   error.value = null
@@ -245,11 +258,10 @@ const handleSignup = async () => {
   error.value = null
 
   try {
-    // For demo purposes, we'll simulate a successful signup
-    // In a real app, you'd call a signup API
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API call
+    // Create the user account
+    await authStore.signup(signupData)
 
-    // Switch to sign in tab and show success message
+    // Switch to sign in tab and pre-fill credentials
     activeTab.value = 'signin'
     signinCredentials.username = signupData.username
     signinCredentials.password = signupData.password
@@ -259,7 +271,7 @@ const handleSignup = async () => {
       signupData[key as keyof typeof signupData] = ''
     })
 
-    error.value = 'Account created successfully! Please sign in.'
+    error.value = 'Account created successfully! You can now sign in with your username or email.'
   } catch (err) {
     error.value = err instanceof Error ? err.message : 'Signup failed'
   } finally {
