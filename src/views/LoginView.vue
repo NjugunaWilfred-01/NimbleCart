@@ -258,11 +258,10 @@ const handleSignup = async () => {
   error.value = null
 
   try {
-    // For demo purposes, we'll simulate a successful signup
-    // In a real app, you'd call a signup API
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API call
+    // Create the user account
+    await authStore.signup(signupData)
 
-    // Switch to sign in tab and show success message
+    // Switch to sign in tab and pre-fill credentials
     activeTab.value = 'signin'
     signinCredentials.username = signupData.username
     signinCredentials.password = signupData.password
@@ -272,7 +271,7 @@ const handleSignup = async () => {
       signupData[key as keyof typeof signupData] = ''
     })
 
-    error.value = 'Account created successfully! Please sign in.'
+    error.value = 'Account created successfully! You can now sign in with your username or email.'
   } catch (err) {
     error.value = err instanceof Error ? err.message : 'Signup failed'
   } finally {
