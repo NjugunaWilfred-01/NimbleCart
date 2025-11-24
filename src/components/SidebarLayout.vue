@@ -19,6 +19,7 @@
           <li>
             <router-link
               to="/"
+              exact-active-class="bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold"
               class="flex items-center gap-3 px-4 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <span>📊</span>
@@ -28,7 +29,8 @@
           <li>
             <router-link
               to="/products"
-              class="flex items-center gap-3 px-4 py-2 mt-2 bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold rounded-lg"
+              active-class="bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold"
+              class="flex items-center gap-3 px-4 py-2 mt-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <span>📦</span>
               Products
@@ -57,12 +59,14 @@
       <div>
         <ul>
           <li>
-            <a
-              class="flex items-center gap-3 px-4 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg cursor-pointer transition-colors"
+            <router-link
+              to="/settings"
+              active-class="bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold"
+              class="flex items-center gap-3 px-4 py-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <span>⚙️</span>
               Settings
-            </a>
+            </router-link>
           </li>
           <li>
             <button

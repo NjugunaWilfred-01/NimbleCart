@@ -69,11 +69,23 @@ npm run dev
 
 ### Authentication
 
+#### Test Account
 Use these test credentials to login:
 - **Username**: `emilys`
 - **Password**: `emilyspass`
 
-Authentication tokens are stored in localStorage for session persistence.
+#### Create New Account
+1. Click "Sign Up" tab
+2. Fill in your details (First Name, Last Name, Username, Email, Password)
+3. Click "Create Account"
+4. Sign in with either your **username** or **email** + password
+
+#### Login Options
+After creating an account, you can login using:
+- **Username** + Password
+- **Email** + Password
+
+All user accounts are stored locally and persist between sessions.
 
 ### Product Management
 
