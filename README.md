@@ -124,7 +124,7 @@ The project includes automated GitHub Pages deployment from the `feature/setting
 
 1. **Automatic Deployment**: Push to `feature/settings` branch triggers GitHub Actions
 2. **Build Process**: Automated build, type checking, and linting
-3. **Live URL**: `https://[username].github.io/NimbleCart/`
+3. **Live URL**: `https://NjugunaWilfred-01.github.io/NimbleCart/`
 
 ### Manual GitHub Pages Deployment
 
@@ -138,7 +138,7 @@ npm run build
    - Source: "Deploy from a branch"
    - Branch: `feature/settings` → `/ (root)`
 
-3. The site will be available at: `https://[username].github.io/NimbleCart/`
+3. The site will be available at: `https://NjugunaWilfred-01.github.io/NimbleCart/`
 
 ## GitHub Codespaces Development
 
