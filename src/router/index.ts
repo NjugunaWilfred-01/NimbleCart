@@ -11,14 +11,26 @@ const router = createRouter({
     },
     {
       path: '/',
-      name: 'products',
-      component: () => import('../views/ProductsView.vue'),
+      name: 'dashboard',
+      component: () => import('../views/DashboardView.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/products',
       name: 'products-list',
       component: () => import('../views/ProductsView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/orders',
+      name: 'orders',
+      component: () => import('../views/OrdersView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/customers',
+      name: 'customers',
+      component: () => import('../views/CustomersView.vue'),
       meta: { requiresAuth: true },
     },
     {

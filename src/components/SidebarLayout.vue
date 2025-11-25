@@ -37,20 +37,24 @@
             </router-link>
           </li>
           <li>
-            <a
-              class="flex items-center gap-3 px-4 py-2 mt-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg cursor-pointer transition-colors"
+            <router-link
+              to="/orders"
+              active-class="bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold"
+              class="flex items-center gap-3 px-4 py-2 mt-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <span>🛒</span>
               Orders
-            </a>
+            </router-link>
           </li>
           <li>
-            <a
-              class="flex items-center gap-3 px-4 py-2 mt-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg cursor-pointer transition-colors"
+            <router-link
+              to="/customers"
+              active-class="bg-blue-100 dark:bg-blue-900/40 text-primary dark:text-blue-300 font-semibold"
+              class="flex items-center gap-3 px-4 py-2 mt-2 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
             >
               <span>👥</span>
               Customers
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
