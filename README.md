@@ -118,14 +118,65 @@ The built files will be in the `dist/` directory.
 
 This project can be deployed to GitHub Pages, Vercel, Netlify, or any static hosting service.
 
-### GitHub Pages Deployment
+### GitHub Pages Deployment (Automated)
+
+The project includes automated GitHub Pages deployment from the `feature/settings` branch:
+
+1. **Automatic Deployment**: Push to `feature/settings` branch triggers GitHub Actions
+2. **Build Process**: Automated build, type checking, and linting
+3. **Live URL**: `https://NjugunaWilfred-01.github.io/NimbleCart/`
+
+### Manual GitHub Pages Deployment
 
 1. Build the project:
 ```sh
 npm run build
 ```
 
-2. Deploy using GitHub Actions or manually upload the `dist/` folder contents.
+2. Enable GitHub Pages in repository settings:
+   - Go to Settings → Pages
+   - Source: "Deploy from a branch"
+   - Branch: `feature/settings` → `/ (root)`
+
+3. The site will be available at: `https://NjugunaWilfred-01.github.io/NimbleCart/`
+
+## GitHub Codespaces Development
+
+This project includes a devcontainer configuration for GitHub Codespaces:
+
+### Features:
+- **Node.js 20** environment
+- **Vue.js** and **TypeScript** extensions pre-installed
+- **Tailwind CSS** IntelliSense
+- **ESLint** and **Prettier** for code quality
+- **Port forwarding** for development server (5173)
+
+### Getting Started:
+1. Open the repository in GitHub Codespaces
+2. The environment will automatically install dependencies
+3. Run `npm run dev` to start development
+4. Access the app at the forwarded port
+
+## GitHub Labs Integration
+
+This project is configured for GitHub Labs interactive learning experiences:
+
+### Included Configurations:
+- **Automated CI/CD** with GitHub Actions
+- **Development environment** with devcontainers
+- **Code quality tools** (ESLint, Prettier, TypeScript)
+- **Testing setup** with Vitest and Playwright
+- **Documentation** and setup guides
+
+### Learning Modules:
+- Vue 3 Composition API
+- TypeScript integration
+- State management with Pinia
+- Routing with Vue Router
+- Styling with Tailwind CSS
+- API integration
+- Testing strategies
+- Deployment workflows
 
 ## Development
 
