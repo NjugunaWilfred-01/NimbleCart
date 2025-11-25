@@ -120,25 +120,44 @@ This project can be deployed to GitHub Pages, Vercel, Netlify, or any static hos
 
 ### GitHub Pages Deployment (Automated)
 
-The project includes automated GitHub Pages deployment from the `feature/settings` branch:
+The project includes automated GitHub Pages deployment from the `main` branch:
 
-1. **Automatic Deployment**: Push to `feature/settings` branch triggers GitHub Actions
-2. **Build Process**: Automated build, type checking, and linting
+1. **Automatic Deployment**: Push to `main` branch triggers GitHub Actions
+2. **Build Process**: Automated build, type checking, linting, and SPA routing setup
 3. **Live URL**: `https://NjugunaWilfred-01.github.io/NimbleCart/`
 
+### GitHub Repository Configuration
+
+To enable GitHub Pages for your repository:
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under **Source**, select **"Deploy from a branch"**
+4. Choose **Branch: `main`** and **Folder: `/docs`**
+5. Click **Save**
+
+The automated workflow will build your project and create the `docs/` folder. The site will be available at: `https://NjugunaWilfred-01.github.io/NimbleCart/`
+
 ### Manual GitHub Pages Deployment
+
+If you prefer to deploy manually:
 
 1. Build the project:
 ```sh
 npm run build
 ```
 
-2. Enable GitHub Pages in repository settings:
-   - Go to Settings → Pages
-   - Source: "Deploy from a branch"
-   - Branch: `feature/settings` → `/ (root)`
+2. Copy the 404.html file to the dist folder:
+```sh
+cp 404.html ./dist/
+```
 
-3. The site will be available at: `https://NjugunaWilfred-01.github.io/NimbleCart/`
+3. Rename the dist folder to docs:
+```sh
+mv dist docs
+```
+
+4. Commit and push the `docs/` folder to your main branch.
 
 ## GitHub Codespaces Development
 

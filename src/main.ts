@@ -16,4 +16,17 @@ app.use(router)
 const authStore = useAuthStore()
 authStore.restoreSession()
 
+// Handle SPA routing for GitHub Pages
+// This code handles the redirect from 404.html
+const l = window.location
+if (l.search.startsWith('?/?')) {
+  // Extract the path from the query string
+  const path = l.search.slice(2).split('&').find(param => !param.includes('='))
+  if (path) {
+    // Decode the path and navigate to it
+    const decodedPath = path.replace(/~and~/g, '&')
+    router.push(decodedPath)
+  }
+}
+
 app.mount('#app')
